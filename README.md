@@ -130,7 +130,7 @@ $ docker run --init --read-only --publish 8080:8080 ghcr.io/makenew/nodejs-serve
 The server is included in the published [npm package] and may be run using npx with
 
 ```
-npx @makenew/nodejs-server --production
+$ npx @makenew/nodejs-server --production
 ```
 
 [npm package]: https://www.npmjs.com/package/@makenew/nodejs-server
