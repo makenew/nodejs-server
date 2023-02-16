@@ -7,7 +7,9 @@ import { createApp, createLogger, getConfig } from '../../index.js'
 export const startTestApp = async (t) => {
   const app = await getTestApp(t)
   await app.start()
-  t.teardown(() => app.stop())
+  t.teardown(async () => {
+    await app.stop()
+  })
   return app
 }
 
