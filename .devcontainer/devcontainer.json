@@ -1,0 +1,26 @@
+{
+  "name": "Node.js",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "18"
+    }
+  },
+  "extensions": [
+    "ms-vsliveshare.vsliveshare",
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-docker",
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode"
+  ],
+  "forwardPorts": [3000, 4000, 8080],
+  "portsAttributes": {
+    "3000": { "label": "App" },
+    "4000": { "label": "App (test)" },
+    "8080": { "label": "App (production)" }
+  },
+  "runArgs": ["--volume=/var/lib/docker", "--privileged"],
+  "postCreateCommand": "npm install",
+  "postAttachCommand": "sudo service docker start",
+  "remoteUser": "node"
+}

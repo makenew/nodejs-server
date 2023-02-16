@@ -1,0 +1,16 @@
+{
+  "exclude": [
+    "**/index.js",
+    "server.js",
+    "lib/config.js",
+    "lib/daemon.js",
+    "lib/logger.js",
+    "package/**/*.js",
+    "examples/**/*.js",
+    "test/fixtures/**/*.js",
+    "**/*.test.js",
+    "**/*.spec.js",
+    "ava.config.js"
+  ],
+  "reporter": ["html", "lcov", "text"]
+}
