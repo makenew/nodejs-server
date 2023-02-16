@@ -1,5 +1,5 @@
 {
-  "name": "Node.js",
+  "name": "Node.js Server",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
