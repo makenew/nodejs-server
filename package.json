@@ -30,6 +30,10 @@
     "!**/*.test.js"
   ],
   "scripts": {
+    "start": "nodemon server.js",
+    "start:inspect": "nodemon --inspect server.js",
+    "start:test": "node server.js --test",
+    "start:production": "node server.js --production",
     "test": "c8 ava",
     "pretest": "node index.js",
     "test:update": "ava --update-snapshots",
@@ -41,10 +45,6 @@
     "postversion": "git push --follow-tags",
     "example": "node examples",
     "example:inspect": "node --inspect examples",
-    "start": "nodemon server.js",
-    "start:inspect": "nodemon --inspect server.js",
-    "start:test": "node server.js --test",
-    "start:production": "node server.js --production",
     "format": "eslint --ignore-path .gitignore --fix --ext .js,.cjs,.mjs .",
     "preformat": "prettier --write --ignore-path .gitignore .",
     "report": "c8 report"
