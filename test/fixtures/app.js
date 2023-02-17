@@ -22,6 +22,5 @@ export const getTestApp = async (t) => {
   })
   const logger = createLogger({ config, t })
   const app = createApp({ config, logger })
-  t.context.app = app
   return app
 }
