@@ -20,7 +20,7 @@ export const getTestApp = async (t) => {
     NODE_ENV: 'test',
     PORT: argv.includes('--smoke') ? env.PORT : port.toString()
   })
-  const logger = createLogger({ config, t })
-  const app = createApp({ config, logger })
+  const logger = createLogger({ ...config, t })
+  const app = createApp(logger, config)
   return app
 }

@@ -28,8 +28,8 @@ const args = await yargs(argv.slice(2))
 try {
   const { NODE_ENV } = args
   const config = await getConfig({ ...env, NODE_ENV })
-  const logger = createLogger({ config })
-  const app = createApp({ config, logger })
+  const logger = createLogger(config)
+  const app = createApp(logger, config)
   await app.start()
   logger.info(`Server: ${app.baseUrl}`)
 } catch (err) {

@@ -12,8 +12,8 @@ const commands = [health]
 
 const createAppContext = async (argv) => {
   const config = await getConfig(env)
-  const logger = createLogger({ config })
-  const app = createApp({ config, logger })
+  const logger = createLogger(config)
+  const app = createApp(logger, config)
   if (argv.start) await app.start()
   argv.app = app
 }
