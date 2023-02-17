@@ -22,6 +22,7 @@ ENV NODE_ENV=production
 COPY package-lock.json ./
 COPY package.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci
+RUN rm package.json package-lock.json
 
 FROM base as app
 
