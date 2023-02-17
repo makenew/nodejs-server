@@ -223,6 +223,26 @@ $ npm install
 [npm]: https://www.npmjs.com/
 [nvm]: https://github.com/creationix/nvm
 
+### Smoke tests
+
+Any test file ending in `.test.js` is a smoke test
+and runs separately from tests ending in `.spec.js`.
+A smoke test verifies the server passes certain external checks.
+During the GitHub Actions check, the Docker container is built and started,
+then the smoke tests make requests to the server in a separate process.
+
+To run the smoke tests locally, first start the test server with
+
+```
+$ npm start:test
+```
+
+and then in a separate terminal, run the smoke tests with
+
+```
+$ npm test:smoke
+```
+
 ### Publishing
 
 Use the [`npm version`][npm-version] command to release a new version.
