@@ -6,7 +6,7 @@ import yargs from 'yargs'
 
 import { createApp, createLogger, getConfig } from './index.js'
 
-const args = yargs(argv.slice(2))
+const args = await yargs(argv.slice(2))
   .describe('production', 'Run in production mode')
   .describe('test', 'Run in test mode')
   .boolean(['production', 'test'])
