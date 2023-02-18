@@ -52,7 +52,7 @@ jobs:
       registry_host: https://npm.pkg.github.com
     secrets:
       registry_token: ${{ secrets.GITHUB_TOKEN }}
-  registry:
+  ghcr:
     name: GitHub Container Registry
     runs-on: ubuntu-latest
     timeout-minutes: 30
