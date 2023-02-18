@@ -1,4 +1,5 @@
-name: Prune test container images
+---
+name: Prune
 
 on:
   schedule:
