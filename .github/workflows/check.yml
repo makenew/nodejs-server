@@ -118,7 +118,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           cache-from: 'type=local,src=/tmp/.buildx-cache'
           cache-to: 'type=local,dest=/tmp/.buildx-cache'
-          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
+          tags: ghcr.io/${{ github.repository }}:smoke-${{ github.sha }}
   smoke:
     name: Smoke test
     needs: containerize
@@ -126,7 +126,7 @@ jobs:
     timeout-minutes: 30
     services:
       app:
-        image: ghcr.io/${{ github.repository }}:${{ github.sha }}
+        image: ghcr.io/${{ github.repository }}:smoke-${{ github.sha }}
         options: '--init --read-only'
         env:
           NODE_ENV: test
@@ -144,11 +144,3 @@ jobs:
         run: npm run test:smoke
         env:
           PORT: ${{ job.services.app.ports['8080'] }}
-      - name: Remove CI container image
-        uses: bots-house/ghcr-delete-image-action@v1.0.1
-        if: always() && github.run_number != 1
-        with:
-          owner: ${{ github.repository_owner }}
-          name: ${{ github.event.repository.name }}
-          tag: ${{ github.sha }}
-          token: ${{ secrets.GH_TOKEN }}

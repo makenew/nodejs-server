@@ -1,0 +1,21 @@
+name: Prune test container images
+
+on:
+  schedule:
+    - cron: '0 5 * * 3'
+  workflow_dispatch: {}
+
+jobs:
+  ghcr:
+    name: GitHub Container Registry
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Prune smoke test images
+        uses: snok/container-retention-policy@v2
+        with:
+          image-names: smoke-*
+          cut-off: One week ago UTC
+          keep-at-least: 1
+          account-type: org
+          token: ${{ secrets.GH_TOKEN }}
