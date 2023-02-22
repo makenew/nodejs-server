@@ -69,7 +69,6 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          cache: npm
           node-version: '18'
       - name: Download artifact
         uses: actions/download-artifact@v3
