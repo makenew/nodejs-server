@@ -1,6 +1,6 @@
 {
   "name": "@makenew/nodejs-server",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Package skeleton for a Node.js server.",
   "type": "module",
   "main": "index.js",
